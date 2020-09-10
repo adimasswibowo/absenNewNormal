@@ -1,0 +1,89 @@
+USE dbabsennewnormal;
+SHOW TABLES;
+
+CREATE TABLE `tblparams` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `type` varchar(45) NOT NULL,
+  `code` varchar(45) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `additional_info` varchar(100) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `tblemployee` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `code` varchar(8) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `dob` date DEFAULT NULL,
+  `shift` varchar(10) NOT NULL,
+  `business_unit` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `code_UNIQUE` (`code`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `tblabsen` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `employee` int NOT NULL,
+  `clock_in` datetime DEFAULT NULL,
+  `clock_out` datetime DEFAULT NULL,
+  `note` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `tblassessment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created_date` datetime NOT NULL,
+  `employee` int NOT NULL,
+  `result` varchar(1000) DEFAULT NULL,
+  `score` int DEFAULT NULL,
+  `note` varchar(100) DEFAULT NULL,
+  `validated_result` varchar(3) DEFAULT NULL,
+  `validated_date` datetime DEFAULT NULL,
+  `expired_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+SELECT * FROM tblparams;
+DESC tblparams;
+TRUNCATE tblparams;
+INSERT INTO tblparams (type,code,name,additional_info,description) VALUES ('HEADER_ASSESSMENT_NN', 'HANN01', 'Dalam 14 hari terakhir, apakah anda pernah mengalami/melakukan hal-hal berikut', '-', '-');
+INSERT INTO tblparams (type,code,name,additional_info,description) VALUES ('QUESTIONS_ASSESSMENT_NN', 'QANN01', 'Apakah anda pergi ke tempat umum yang ada kerumunan ?', '1', 'Jika ya bernilai 1, jika tidak bernilai 0');
+INSERT INTO tblparams (type,code,name,additional_info,description) VALUES ('QUESTIONS_ASSESSMENT_NN', 'QANN02', 'Apakah anda naik transportasi umum ?', '1', 'Jika ya bernilai 1, jika tidak bernilai 0');
+INSERT INTO tblparams (type,code,name,additional_info,description) VALUES ('QUESTIONS_ASSESSMENT_NN', 'QANN03', 'Apakah anda pergi ke luar kota/luar negeri berzona merah ?', '1', 'Jika ya bernilai 1, jika tidak bernilai 0');
+INSERT INTO tblparams (type,code,name,additional_info,description) VALUES ('QUESTIONS_ASSESSMENT_NN', 'QANN04', 'Apakah anda ikut kegiatan yang melibatkan banyak orang ?', '1', 'Jika ya bernilai 1, jika tidak bernilai 0');
+INSERT INTO tblparams (type,code,name,additional_info,description) VALUES ('QUESTIONS_ASSESSMENT_NN', 'QANN05', 'Apakah anda kotak/dekat dengan orang yang terkonfirmasi COVID-19 ?', '5', 'Jika ya bernilai 5, jika tidak bernilai 0');
+INSERT INTO tblparams (type,code,name,additional_info,description) VALUES ('QUESTIONS_ASSESSMENT_NN', 'QANN06', 'Apakah anda sedang demam, batuk, pilek, sesak napas ?', '5', 'Jika ya bernilai 5, jika tidak bernilai 0');
+
+
+SELECT * FROM tblemployee;
+DESC tblemployee;
+TRUNCATE tblemployee;
+INSERT INTO tblemployee (code,name,dob,shift,business_unit) VALUES ('09200001', 'Adimas S Wibowo', '1991-05-30', 'REGULER', 'IT');
+INSERT INTO tblemployee (code,name,dob,shift,business_unit) VALUES ('09200002', 'Nurul Safitri', '1992-04-30', 'REGULER', 'HUMAN_CAPITAL');
+INSERT INTO tblemployee (code,name,dob,shift,business_unit) VALUES ('09200003', 'Abel Assyifa Wibowo', '1995-02-02', 'REGULER', 'CONTACT_CENTER');
+INSERT INTO tblemployee (code,name,dob,shift,business_unit) VALUES ('09200004', 'Gezil Putra Wibowo', '1995-02-03', 'REGULER', 'CONTACT_CENTER');
+
+SELECT * FROM tblassessment;
+DESC tblassessment;
+TRUNCATE tblassessment;
+INSERT INTO tblassessment (created_date,employee,result,score,note,validated_result,validated_date,expired_date) VALUES (NOW(), 4,'{"QANN01":"0","QANN02":"0","QANN03":"0","QANN04":"0","QANN05":"0","QANN06":"0"}',0, 'LOW RISK - NO SUGGESTION', 'WFO', NOW(), NOW()+14);
+INSERT INTO tblassessment (created_date,employee,result,score,note,validated_result,validated_date,expired_date) VALUES (NOW(), 5,'{"QANN01":"1","QANN02":"0","QANN03":"0","QANN04":"0","QANN05":"0","QANN06":"0"}',1, 'MEDIUM RISK - RAPPID TEST', 'WFO', NOW(), NOW()+ INTERVAL 14 DAY);
+INSERT INTO tblassessment (created_date,employee,result,score,note,validated_result,validated_date,expired_date) VALUES (NOW(), 6,'{"QANN01":"1","QANN02":"0","QANN03":"0","QANN04":"0","QANN05":"5","QANN06":"0"}', 6, 'HIGH RISK - SWAB TEST', 'WFH', NOW(), NOW()+ INTERVAL 7 DAY);
+
+
+SELECT * FROM tblabsen;
+DESC tblabsen;
+TRUNCATE tblabsen;
+INSERT INTO tblabsen (employee,clock_in,clock_out,note) VALUES (4, '2020-09-08 08:00:00', '2020-09-08 17:00:00','-');
+INSERT INTO tblabsen (employee,clock_in,clock_out,note) VALUES (5, '2020-09-08 08:01:00', '2020-09-08 17:00:00','LATE CLOCK IN - RIGHT CLOCK OUT');
+INSERT INTO tblabsen (employee,clock_in,clock_out,note) VALUES (6, '2020-09-08 08:45:00', '2020-09-08 16:58:00','LATE CLOCK IN - EARLY CLOCK OUT');
+

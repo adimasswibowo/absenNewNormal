@@ -1,0 +1,36 @@
+File Pendukung :
+================
+1. ABSEN_NEW_NORMAL.postman_collection.json ==> Dokumentasi Request Response API
+2. queryNote.txt ==> query DDL dan DML Applikasi
+3. CARA_KERJA_&_KETENTUAN.txt ==> Panduan Ketentuan Aplikasi
+4. ASSESSMENT.png ==> File sumber assessment
+
+Ketentuan Aplikasi:
+===================
+1. Insert table master terlebih dahulu (tblparams, tblemployee) ==>dapat menggunakan api yang tersedia di postman collection (ABSEN_NEW_NORMAL.postman_collection.json) atau menggunakan query yang tersedia (queryNote.txt)
+2. Untuk melakukan pengisian assessment dan absensi dapat menggunakan api yang tersedia di postman collection (ABSEN_NEW_NORMAL.postman_collection.json)
+3. Karyawan dapat melakukan absen jika memenuhi ketentuan sbb :
+	- Sudah melakukan assessment covid-19 berdasarkan data yang sebenarnya
+	- mendapat "result_validated=WFO" berdasarkan hasil scoring
+	- mendapat "LOW RISK - NO SUGGESTION" berdasarkan hasil scoring
+4. Karyawan tidak dapat melakukan absen jika memenuhi ketentuan sbb :
+	- Belum melakukan assessment covid-19 berdasarkan data yang sebenarnya
+	- Tidak mendapat "result_validated=WFO" berdasarkan hasil scoring
+	- mendapat "note=HIGH RISK - SWAB TEST" atau note="MEDIUM RISK - RAPPID TEST" berdasarkan hasil scoring
+5. Score Assessment didapat dari penjumlahan bobot perhitungan sbb :
+	- Apakah anda pergi ke tempat umum yang ada kerumunan ? ==>Jika ya bernilai 1, jika tidak bernilai 0
+	- Apakah anda naik transportasi umum ? ==> Jika ya bernilai 1, jika tidak bernilai 0
+	- Apakah anda pergi ke luar kota/luar negeri berzona merah ? ==> Jika ya bernilai 1, jika tidak bernilai 0
+	- Apakah anda ikut kegiatan yang melibatkan banyak orang ? ==> Jika ya bernilai 1, jika tidak bernilai 0
+	- Apakah anda kotak/dekat dengan orang yang terkonfirmasi COVID-19 ? ==> Jika ya bernilai 5, jika tidak bernilai 0
+	- Apakah anda sedang demam, batuk, pilek, sesak napas ? ==> Jika ya bernilai 5, jika tidak bernilai 0
+6. Note Assessment didapat berdasarkan ketentuan sbb :
+	- Jika score=0 ==> note="LOW RISK - NO SUGGESTION"
+	- Jika score>0 dan score<5 ==> note="MEDIUM RISK - RAPPID TEST"
+	- Jika score>=5 ==> note="HIGH RISK - SWAB TEST"
+	- Atau Input dari supervisor/admin dengan membertimbangan hasil RAPPID TEST atau hal lain.
+7. Result Assessment didapat berdasarkan ketentuan sbb :
+	- Jika score=0 ==> result="WFO" ==> Boleh bekerja dikantor (WFO)
+	- Jika score>0 dan score<5 ==> result=null ==> Keputusan ditentukan oleh supervisor/admin dengan melakukan(validasi) 
+	- Jika score>=5 ==> result="WFH" ==> Tidak boleh bekerja dikantor (WFH) dan wajib menjalankan SWAB TEST
+		
