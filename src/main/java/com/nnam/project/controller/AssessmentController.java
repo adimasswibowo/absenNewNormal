@@ -50,18 +50,18 @@ public class AssessmentController {
 			assessmentList=(List<Assessment>) assessmentRepository.findAll();
 			if (assessmentList.size()<1) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "failed");
+				responseMap.put("responseMessage", "failed");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "success");
+		responseMap.put("responseMessage", "success");
 		responseMap.put("assessment", assessmentList);
 		
 		return new ResponseEntity(responseMap, HttpStatus.OK);
@@ -82,7 +82,7 @@ public class AssessmentController {
 				if(!employeeOptional.isPresent()) {
 					employeeId=(Integer) paramMap.get("employee");
 					responseMap.put("responseCode", "01");
-					responseMap.put("responseMap", "Employee with Id:"+employeeId+" not found");
+					responseMap.put("responseMessage", "Employee with Id:"+employeeId+" not found");
 					return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 				}
 				Employee employeeObj=employeeOptional.get();
@@ -91,18 +91,18 @@ public class AssessmentController {
 			
 			if(assessmentList.size()<1) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "Assessment not found");
+				responseMap.put("responseMessage", "Assessment not found");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "success");
+		responseMap.put("responseMessage", "success");
 		responseMap.put("assessment", assessmentList);
 		
 		return new ResponseEntity(responseMap, HttpStatus.OK);
@@ -130,7 +130,7 @@ public class AssessmentController {
 				Optional<Employee> employeeOptional=employeeRepository.findById(employeeId);
 				if(!employeeOptional.isPresent()) {
 					responseMap.put("responseCode", "01");
-					responseMap.put("responseMap", "Employee with Id:"+employeeId+" not found");
+					responseMap.put("responseMessage", "Employee with Id:"+employeeId+" not found");
 					return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 				}
 				employeeObj=employeeOptional.get();
@@ -157,7 +157,7 @@ public class AssessmentController {
 				Date expiredDateAssessment=assessmentActive.getExpiredDate();
 				if(expiredDateAssessment==null) {
 					responseMap.put("responseCode", "01");
-					responseMap.put("responseMap", "You have an uncompleted assessment, please contact your supervisor");
+					responseMap.put("responseMessage", "You have an uncompleted assessment, please contact your supervisor");
 					return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 				}
 				now.setTime(expiredDateAssessment);
@@ -166,7 +166,7 @@ public class AssessmentController {
 				Date toleranceDated=now.getTime();
 				if(expiredDateAssessment!=null && today.before(toleranceDate)) {
 					responseMap.put("responseCode", "01");
-					responseMap.put("responseMap", "You have already assessment");
+					responseMap.put("responseMessage", "You have already assessment");
 					return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 				}
 			}
@@ -200,12 +200,12 @@ public class AssessmentController {
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "Success add Assessment");
+		responseMap.put("responseMessage", "Success add Assessment");
 		responseMap.put("assessment", assessmentActive);
 		return new ResponseEntity(responseMap, HttpStatus.OK);
 	}
@@ -232,7 +232,7 @@ public class AssessmentController {
 				Optional<Employee> employeeOptional=employeeRepository.findById(employeeId);
 				if(!employeeOptional.isPresent()) {
 					responseMap.put("responseCode", "01");
-					responseMap.put("responseMap", "Employee with Id:"+employeeId+" not found");
+					responseMap.put("responseMessage", "Employee with Id:"+employeeId+" not found");
 					return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 				}
 				employeeObj=employeeOptional.get();
@@ -254,7 +254,7 @@ public class AssessmentController {
 			if(assessmentList.size()<1) {
 				//Belum memiliki assessment
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "Employee with id :"+employeeId+ "no have an uncompleted assessment (no record)");
+				responseMap.put("responseMessage", "Employee with id :"+employeeId+ "no have an uncompleted assessment (no record)");
 				return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 			
@@ -264,7 +264,7 @@ public class AssessmentController {
 				Date expiredDateAssessment=assessmentActive.getExpiredDate();
 				if(expiredDateAssessment!=null) {
 					responseMap.put("responseCode", "01");
-					responseMap.put("responseMap", "Employee with id :"+employeeId+ " no have an uncompleted assessment");
+					responseMap.put("responseMessage", "Employee with id :"+employeeId+ " no have an uncompleted assessment");
 					return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 				}
 			}
@@ -283,12 +283,12 @@ public class AssessmentController {
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "Success validate Assessment");
+		responseMap.put("responseMessage", "Success validate Assessment");
 		responseMap.put("assessment", assessmentActive);
 		return new ResponseEntity(responseMap, HttpStatus.OK);
 	}

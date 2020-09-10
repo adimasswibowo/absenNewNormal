@@ -1,0 +1,2756 @@
+{
+	"info": {
+		"_postman_id": "760d4aa3-86c2-4941-b495-eb82c184ef80",
+		"name": "ABSEN_NEW_NORMAL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "EMPLOYEE",
+			"item": [
+				{
+					"name": "GET_EMPLOYEE_BYID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/Employee/getById/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Employee",
+								"getById",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_FAILED",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/Employee/getById/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Employee",
+										"getById",
+										"10"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:48:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"Employee with Id=10 not found\",\n    \"responseCode\": \"01\"\n}"
+						},
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/Employee/getById/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Employee",
+										"getById",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:47:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"success\",\n    \"employee\": {\n        \"id\": 1,\n        \"code\": \"09200001\",\n        \"name\": \"Adimas S Wibowo\",\n        \"dob\": \"1991-05-29T17:00:00.000+00:00\",\n        \"shift\": \"REGULER\",\n        \"businessUnit\": \"IT\"\n    },\n    \"responseCode\": \"00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET_EMPLOYEE_BYPARAMS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Adimas S Wibowo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/Employee/getByParams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Employee",
+								"getByParams"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Adimas S Wibowo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Employee/getByParams",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Employee",
+										"getByParams"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:49:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"success\",\n    \"employee\": {\n        \"id\": 1,\n        \"code\": \"09200001\",\n        \"name\": \"Adimas S Wibowo\",\n        \"dob\": \"1991-05-29T17:00:00.000+00:00\",\n        \"shift\": \"REGULER\",\n        \"businessUnit\": \"IT\"\n    },\n    \"responseCode\": \"00\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Adimas Sa Wibowo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Employee/getByParams",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Employee",
+										"getByParams"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:49:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"Employee with name=Adimas Sa Wibowo not found\",\n    \"responseCode\": \"01\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET_EMPLOYEE_LISTALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/Employee/getListAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Employee",
+								"getListAll"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/Employee/getListAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Employee",
+										"getListAll"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:50:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"success\",\n    \"employee\": [\n        {\n            \"id\": 1,\n            \"code\": \"09200001\",\n            \"name\": \"Adimas S Wibowo\",\n            \"dob\": \"1991-05-29T17:00:00.000+00:00\",\n            \"shift\": \"REGULER\",\n            \"businessUnit\": \"IT\"\n        },\n        {\n            \"id\": 2,\n            \"code\": \"09200002\",\n            \"name\": \"Nurul Safitri\",\n            \"dob\": \"1992-04-29T17:00:00.000+00:00\",\n            \"shift\": \"REGULER\",\n            \"businessUnit\": \"HUMAN_CAPITAL\"\n        },\n        {\n            \"id\": 3,\n            \"code\": \"09200003\",\n            \"name\": \"Abel Assyifa Wibowo\",\n            \"dob\": \"1995-02-01T17:00:00.000+00:00\",\n            \"shift\": \"REGULER\",\n            \"businessUnit\": \"CONTACT_CENTER\"\n        },\n        {\n            \"id\": 4,\n            \"code\": \"09200004\",\n            \"name\": \"Gezil Putra Wibowo\",\n            \"dob\": \"1995-02-02T17:00:00.000+00:00\",\n            \"shift\": \"REGULER\",\n            \"businessUnit\": \"CONTACT_CENTER\"\n        }\n    ],\n    \"responseCode\": \"00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE_EMPLOYEE_BYID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/Employee/deleteById/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Employee",
+								"deleteById",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_FAILED",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/Employee/deleteById/90",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Employee",
+										"deleteById",
+										"90"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:50:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"Employee with Id:90 not found\",\n    \"responseCode\": \"01\"\n}"
+						},
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/Employee/deleteById/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Employee",
+										"deleteById",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:51:05 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"Success delete Employee\",\n    \"employee\": {\n        \"id\": 2,\n        \"code\": \"09200002\",\n        \"name\": \"Nurul Safitri\",\n        \"dob\": \"1992-04-29T17:00:00.000+00:00\",\n        \"shift\": \"REGULER\",\n        \"businessUnit\": \"HUMAN_CAPITAL\"\n    },\n    \"responseCode\": \"00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ADD_EMPLOYEE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"09200006\",\r\n        \"name\": \"Nurul Safitri\",\r\n        \"dob\": \"1992-04-29T17:00:00.000+00:00\",\r\n        \"shift\": \"REGULER\",\r\n        \"businessUnit\": \"HUMAN_CAPITAL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/Employee/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Employee",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\": \"09200006\",\r\n        \"name\": \"Nurul Safitri\",\r\n        \"dob\": \"1992-04-29T17:00:00.000+00:00\",\r\n        \"shift\": \"REGULER\",\r\n        \"businessUnit\": \"HUMAN_CAPITAL\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Employee/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Employee",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:52:38 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"Success add Employee\",\n    \"employee\": {\n        \"id\": 5,\n        \"code\": \"09200006\",\n        \"name\": \"Nurul Safitri\",\n        \"dob\": \"1992-04-29T17:00:00.000+00:00\",\n        \"shift\": \"REGULER\",\n        \"businessUnit\": \"HUMAN_CAPITAL\"\n    },\n    \"responseCode\": \"00\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\": \"09200001\",\r\n        \"name\": \"Nurul Safitri\",\r\n        \"dob\": \"1992-04-29T17:00:00.000+00:00\",\r\n        \"shift\": \"REGULER\",\r\n        \"businessUnit\": \"HUMAN_CAPITAL\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Employee/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Employee",
+										"add"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:53:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"failed\",\n    \"responseCode\": \"99\"\n}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE_EMPLOYEE_BYID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n            \"code\": \"09200004\",\r\n            \"name\": \"Gezil P Wibowo\",\r\n            \"dob\": \"1995-02-02T17:00:00.000+00:00\",\r\n            \"shift\": \"REGULER\",\r\n            \"businessUnit\": \"CONTACT_CENTER\"\r\n        },",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/Employee/updateById/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Employee",
+								"updateById",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n            \"code\": \"09200004\",\r\n            \"name\": \"Gezil P Wibowo\",\r\n            \"dob\": \"1995-02-02T17:00:00.000+00:00\",\r\n            \"shift\": \"REGULER\",\r\n            \"businessUnit\": \"CONTACT_CENTER\"\r\n        },",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Employee/updateById/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Employee",
+										"updateById",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:55:41 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"Success update Employee\",\n    \"employee\": {\n        \"id\": 4,\n        \"code\": \"09200004\",\n        \"name\": \"Gezil P Wibowo\",\n        \"dob\": \"1995-02-02T17:00:00.000+00:00\",\n        \"shift\": \"REGULER\",\n        \"businessUnit\": \"CONTACT_CENTER\"\n    },\n    \"responseCode\": \"00\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\": \"09200004\",\r\n    \"name\": \"Adimas Sampurno Wibowo\",\r\n    \"dob\": \"1991-05-29T17:00:00.000+00:00\",\r\n    \"shift\": \"REGULER\",\r\n    \"businessUnit\": \"IT\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Employee/updateById/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Employee",
+										"updateById",
+										"5"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:53:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"failed\",\n    \"responseCode\": \"99\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ABSEN",
+			"item": [
+				{
+					"name": "GET_ABSEN_LISTALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/Absen/getListAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Absen",
+								"getListAll"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/Absen/getListAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Absen",
+										"getListAll"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:56:52 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"success\",\n    \"absen\": [\n        {\n            \"id\": 1,\n            \"employee\": {\n                \"id\": 1,\n                \"code\": \"09200001\",\n                \"name\": \"Adimas S Wibowo\",\n                \"dob\": \"1991-05-29T17:00:00.000+00:00\",\n                \"shift\": \"REGULER\",\n                \"businessUnit\": \"IT\"\n            },\n            \"clockIn\": \"2020-09-10T09:03:33.000+00:00\",\n            \"clockOut\": \"2020-09-10T09:03:34.000+00:00\",\n            \"note\": \"LATE CLOCK IN - EARLY CLOCK OUT\"\n        }\n    ],\n    \"responseCode\": \"00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET_ABSEN_BYPARAMS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"employee\":1,\r\n    \"startDate\":  \"10/09/2020 00:00:00\",\r\n    \"endDate\":  \"10/09/2020 23:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/Absen/getByParams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Absen",
+								"getByParams"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":1,\r\n    \"startDate\":  \"10/09/2020 00:00:00\",\r\n    \"endDate\":  \"10/09/2020 23:00:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Absen/getByParams",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Absen",
+										"getByParams"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:58:34 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"success\",\n    \"absen\": [\n        {\n            \"id\": 1,\n            \"employee\": {\n                \"id\": 1,\n                \"code\": \"09200001\",\n                \"name\": \"Adimas S Wibowo\",\n                \"dob\": \"1991-05-29T17:00:00.000+00:00\",\n                \"shift\": \"REGULER\",\n                \"businessUnit\": \"IT\"\n            },\n            \"clockIn\": \"2020-09-10T09:03:33.000+00:00\",\n            \"clockOut\": \"2020-09-10T09:03:34.000+00:00\",\n            \"note\": \"LATE CLOCK IN - EARLY CLOCK OUT\"\n        }\n    ],\n    \"responseCode\": \"00\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":1,\r\n    \"startDate\":  \"10/09/2020 00:00:00\",\r\n    \"endDate\":  \"08/09/2020 23:00:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Absen/getByParams",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Absen",
+										"getByParams"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:58:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"Absen not found\",\n    \"responseCode\": \"01\"\n}"
+						}
+					]
+				},
+				{
+					"name": "RECORD_ABSEN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"employee\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/Absen/recordAbsen",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Absen",
+								"recordAbsen"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Absen/recordAbsen",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Absen",
+										"recordAbsen"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:59:02 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"Success add Absen\",\n    \"absen\": {\n        \"id\": 1,\n        \"employee\": {\n            \"id\": 1,\n            \"code\": \"09200001\",\n            \"name\": \"Adimas S Wibowo\",\n            \"dob\": \"1991-05-29T17:00:00.000+00:00\",\n            \"shift\": \"REGULER\",\n            \"businessUnit\": \"IT\"\n        },\n        \"clockIn\": \"2020-09-10T09:03:33.000+00:00\",\n        \"clockOut\": \"2020-09-10T09:59:02.606+00:00\",\n        \"note\": \"LATE CLOCK IN - LATE CLOCK OUT\"\n    },\n    \"responseCode\": \"00\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED_MUSBE_WFH",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Absen/recordAbsen",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Absen",
+										"recordAbsen"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:02:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"You must be WORK FROM HOME\",\n    \"responseCode\": \"01\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED_EXPIRED_ASSESSMENT",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Absen/recordAbsen",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Absen",
+										"recordAbsen"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:01:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"You no have an assessment (expired), please do assessment first\",\n    \"responseCode\": \"01\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED_NORECORD_ASSESSMENT",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Absen/recordAbsen",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Absen",
+										"recordAbsen"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:59:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"You no have an assessment (no record), please do assessment first\",\n    \"responseCode\": \"01\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED_UNCOMPLETE_ASSESSTMENT",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Absen/recordAbsen",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Absen",
+										"recordAbsen"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:00:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"You have an uncompleted assessment, please contact your supervisor\",\n    \"responseCode\": \"01\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ASSESSMENT",
+			"item": [
+				{
+					"name": "GET_ASSESSMENT_LISTALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/Assessment/getListAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Assessment",
+								"getListAll"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/Assessment/getListAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Assessment",
+										"getListAll"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:03:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"assessment\": [\n        {\n            \"id\": 1,\n            \"createdDate\": \"2020-09-10T10:00:04.000+00:00\",\n            \"employee\": {\n                \"id\": 1,\n                \"code\": \"09200001\",\n                \"name\": \"Adimas S Wibowo\",\n                \"dob\": \"1991-05-29T17:00:00.000+00:00\",\n                \"shift\": \"REGULER\",\n                \"businessUnit\": \"IT\"\n            },\n            \"result\": \"{\\\"QANN01\\\":\\\"T\\\",\\\"QANN02\\\":\\\"Y\\\",\\\"QANN03\\\":\\\"T\\\",\\\"QANN04\\\":\\\"T\\\",\\\"QANN05\\\":\\\"T\\\",\\\"QANN06\\\":\\\"T\\\"}\",\n            \"score\": 1,\n            \"note\": \"SUDAH MELAKUKAN RAPID TEST DENGAN HASIL NONREACTIVE PADA TANGGAL XX/XX/XXXX\",\n            \"validatedResult\": \"WFH\",\n            \"validatedDate\": \"2020-09-10T10:00:59.000+00:00\",\n            \"expiredDate\": \"2020-09-23T17:00:00.000+00:00\"\n        }\n    ],\n    \"responseMap\": \"success\",\n    \"responseCode\": \"00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET_ASSESSMENT_BYPARAMS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"employee\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/Assessment/getByParams",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Assessment",
+								"getByParams"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_FAILED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Assessment/getByParams",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Assessment",
+										"getByParams"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 09:57:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"Employee with Id:2 not found\",\n    \"responseCode\": \"01\"\n}"
+						},
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Assessment/getByParams",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Assessment",
+										"getByParams"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:03:48 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"assessment\": [\n        {\n            \"id\": 1,\n            \"createdDate\": \"2020-09-10T10:00:04.000+00:00\",\n            \"employee\": {\n                \"id\": 1,\n                \"code\": \"09200001\",\n                \"name\": \"Adimas S Wibowo\",\n                \"dob\": \"1991-05-29T17:00:00.000+00:00\",\n                \"shift\": \"REGULER\",\n                \"businessUnit\": \"IT\"\n            },\n            \"result\": \"{\\\"QANN01\\\":\\\"T\\\",\\\"QANN02\\\":\\\"Y\\\",\\\"QANN03\\\":\\\"T\\\",\\\"QANN04\\\":\\\"T\\\",\\\"QANN05\\\":\\\"T\\\",\\\"QANN06\\\":\\\"T\\\"}\",\n            \"score\": 1,\n            \"note\": \"SUDAH MELAKUKAN RAPID TEST DENGAN HASIL NONREACTIVE PADA TANGGAL XX/XX/XXXX\",\n            \"validatedResult\": \"WFH\",\n            \"validatedDate\": \"2020-09-10T10:00:59.000+00:00\",\n            \"expiredDate\": \"2020-09-23T17:00:00.000+00:00\"\n        }\n    ],\n    \"responseMap\": \"success\",\n    \"responseCode\": \"00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "RECORD_ASSESSMENT_BYEMPLOYEE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"employee\":1,\r\n    \"result\":{\r\n                \"QANN01\":\"T\",\r\n                \"QANN02\":\"Y\",\r\n                \"QANN03\":\"T\",\r\n                \"QANN04\":\"T\",\r\n                \"QANN05\":\"T\",\r\n                \"QANN06\":\"T\"\r\n            }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/Assessment/recordAssessmentByEmployee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Assessment",
+								"recordAssessmentByEmployee"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":1,\r\n    \"result\":{\r\n                \"QANN01\":\"T\",\r\n                \"QANN02\":\"Y\",\r\n                \"QANN03\":\"T\",\r\n                \"QANN04\":\"T\",\r\n                \"QANN05\":\"T\",\r\n                \"QANN06\":\"T\"\r\n            }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Assessment/recordAssessmentByEmployee",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Assessment",
+										"recordAssessmentByEmployee"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:05:12 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"assessment\": {\n        \"id\": 1,\n        \"createdDate\": \"2020-09-10T10:05:12.255+00:00\",\n        \"employee\": {\n            \"id\": 1,\n            \"code\": \"09200001\",\n            \"name\": \"Adimas S Wibowo\",\n            \"dob\": \"1991-05-29T17:00:00.000+00:00\",\n            \"shift\": \"REGULER\",\n            \"businessUnit\": \"IT\"\n        },\n        \"result\": \"{\\\"QANN01\\\":\\\"T\\\",\\\"QANN02\\\":\\\"Y\\\",\\\"QANN03\\\":\\\"T\\\",\\\"QANN04\\\":\\\"T\\\",\\\"QANN05\\\":\\\"T\\\",\\\"QANN06\\\":\\\"T\\\"}\",\n        \"score\": 1,\n        \"note\": \"MEDIUM RISK - RAPPID TEST\",\n        \"validatedResult\": null,\n        \"validatedDate\": null,\n        \"expiredDate\": null\n    },\n    \"responseMap\": \"Success add Assessment\",\n    \"responseCode\": \"00\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED_UNCOMPLETE_ASSESSMENT",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":1,\r\n    \"result\":{\r\n                \"QANN01\":\"T\",\r\n                \"QANN02\":\"Y\",\r\n                \"QANN03\":\"T\",\r\n                \"QANN04\":\"T\",\r\n                \"QANN05\":\"T\",\r\n                \"QANN06\":\"T\"\r\n            }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Assessment/recordAssessmentByEmployee",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Assessment",
+										"recordAssessmentByEmployee"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:05:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"You have an uncompleted assessment, please contact your supervisor\",\n    \"responseCode\": \"01\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED_ALREADY_ASSESSMENT",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":1,\r\n    \"result\":{\r\n                \"QANN01\":\"T\",\r\n                \"QANN02\":\"Y\",\r\n                \"QANN03\":\"T\",\r\n                \"QANN04\":\"T\",\r\n                \"QANN05\":\"T\",\r\n                \"QANN06\":\"T\"\r\n            }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Assessment/recordAssessmentByEmployee",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Assessment",
+										"recordAssessmentByEmployee"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:06:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"You have already assessment\",\n    \"responseCode\": \"01\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED_EMPLOYEE_NOTFOUND",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":10,\r\n    \"result\":{\r\n                \"QANN01\":\"T\",\r\n                \"QANN02\":\"Y\",\r\n                \"QANN03\":\"T\",\r\n                \"QANN04\":\"T\",\r\n                \"QANN05\":\"T\",\r\n                \"QANN06\":\"T\"\r\n            }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Assessment/recordAssessmentByEmployee",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Assessment",
+										"recordAssessmentByEmployee"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:07:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"Employee with Id:10 not found\",\n    \"responseCode\": \"01\"\n}"
+						}
+					]
+				},
+				{
+					"name": "RECORD_ASSESSMENT_BYADMIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"employee\":1,\r\n    \"result\":\"WFO\",\r\n    \"note\":\"SUDAH MELAKUKAN RAPID TEST DENGAN HASIL NONREACTIVE PADA TANGGAL XX/XX/XXXX\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/Assessment/validateAssessmentByAdmin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Assessment",
+								"validateAssessmentByAdmin"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":1,\r\n    \"result\":\"WFO\",\r\n    \"note\":\"SUDAH MELAKUKAN RAPID TEST DENGAN HASIL NONREACTIVE PADA TANGGAL XX/XX/XXXX\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Assessment/validateAssessmentByAdmin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Assessment",
+										"validateAssessmentByAdmin"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:07:58 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"assessment\": {\n        \"id\": 1,\n        \"createdDate\": \"2020-09-10T10:07:52.000+00:00\",\n        \"employee\": {\n            \"id\": 1,\n            \"code\": \"09200001\",\n            \"name\": \"Adimas S Wibowo\",\n            \"dob\": \"1991-05-29T17:00:00.000+00:00\",\n            \"shift\": \"REGULER\",\n            \"businessUnit\": \"IT\"\n        },\n        \"result\": \"{\\\"QANN01\\\":\\\"T\\\",\\\"QANN02\\\":\\\"Y\\\",\\\"QANN03\\\":\\\"T\\\",\\\"QANN04\\\":\\\"T\\\",\\\"QANN05\\\":\\\"T\\\",\\\"QANN06\\\":\\\"T\\\"}\",\n        \"score\": 1,\n        \"note\": \"SUDAH MELAKUKAN RAPID TEST DENGAN HASIL NONREACTIVE PADA TANGGAL XX/XX/XXXX\",\n        \"validatedResult\": \"WFO\",\n        \"validatedDate\": \"2020-09-10T10:07:58.116+00:00\",\n        \"expiredDate\": \"2020-09-23T17:00:00.116+00:00\"\n    },\n    \"responseMap\": \"Success validate Assessment\",\n    \"responseCode\": \"00\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED_NOHAVE_UNCOMPLETE_ASSESSMENT",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":1,\r\n    \"result\":\"WFO\",\r\n    \"note\":\"SUDAH MELAKUKAN RAPID TEST DENGAN HASIL NONREACTIVE PADA TANGGAL XX/XX/XXXX\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Assessment/validateAssessmentByAdmin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Assessment",
+										"validateAssessmentByAdmin"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:08:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"Employee with id :1 no have an uncompleted assessment\",\n    \"responseCode\": \"01\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED_EMPLOYEE_NOTFOUND",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employee\":10,\r\n    \"result\":\"WFO\",\r\n    \"note\":\"SUDAH MELAKUKAN RAPID TEST DENGAN HASIL NONREACTIVE PADA TANGGAL XX/XX/XXXX\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Assessment/validateAssessmentByAdmin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Assessment",
+										"validateAssessmentByAdmin"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:08:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"Employee with Id:10 not found\",\n    \"responseCode\": \"01\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "PARAMS",
+			"item": [
+				{
+					"name": "GET_PARAMS_BYID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/Params/getById/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Params",
+								"getById",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/Params/getById/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Params",
+										"getById",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:09:41 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"success\",\n    \"params\": {\n        \"id\": 1,\n        \"type\": \"HEADER_ASSESSMENT_NN\",\n        \"code\": \"HANN01\",\n        \"name\": \"Dalam 14 hari terakhir, apakah anda pernah mengalami/melakukan hal-hal berikut\",\n        \"additionalInfo\": \"-\",\n        \"description\": \"-\"\n    },\n    \"responseCode\": \"00\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/Params/getById/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Params",
+										"getById",
+										"10"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:10:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"params with Id=10 not found\",\n    \"responseCode\": \"01\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET_PARAMS_BYTYPE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\":\"QUESTIONS_ASSESSMENT_NN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/Params/getByType",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Params",
+								"getByType"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_FAILED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\":\"QUESTIONS_ASSESSMENT_NDN\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Params/getByType",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Params",
+										"getByType"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:10:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"params with type=QUESTIONS_ASSESSMENT_NDN not found\",\n    \"responseCode\": \"01\"\n}"
+						},
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\":\"QUESTIONS_ASSESSMENT_NN\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Params/getByType",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Params",
+										"getByType"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:10:33 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMap\": \"success\",\n    \"params\": [\n        {\n            \"id\": 2,\n            \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n            \"code\": \"QANN01\",\n            \"name\": \"Apakah anda pergi ke tempat umum yang ada kerumunan ?\",\n            \"additionalInfo\": \"1\",\n            \"description\": \"Jika ya bernilai 1, jika tidak bernilai 0\"\n        },\n        {\n            \"id\": 3,\n            \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n            \"code\": \"QANN02\",\n            \"name\": \"Apakah anda naik transportasi umum ?\",\n            \"additionalInfo\": \"1\",\n            \"description\": \"Jika ya bernilai 1, jika tidak bernilai 0\"\n        },\n        {\n            \"id\": 4,\n            \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n            \"code\": \"QANN03\",\n            \"name\": \"Apakah anda pergi ke luar kota/luar negeri berzona merah ?\",\n            \"additionalInfo\": \"1\",\n            \"description\": \"Jika ya bernilai 1, jika tidak bernilai 0\"\n        },\n        {\n            \"id\": 5,\n            \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n            \"code\": \"QANN04\",\n            \"name\": \"Apakah anda ikut kegiatan yang melibatkan banyak orang ?\",\n            \"additionalInfo\": \"1\",\n            \"description\": \"Jika ya bernilai 1, jika tidak bernilai 0\"\n        },\n        {\n            \"id\": 6,\n            \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n            \"code\": \"QANN05\",\n            \"name\": \"Apakah anda kotak/dekat dengan orang yang terkonfirmasi COVID-19 ?\",\n            \"additionalInfo\": \"5\",\n            \"description\": \"Jika ya bernilai 5, jika tidak bernilai 0\"\n        },\n        {\n            \"id\": 7,\n            \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n            \"code\": \"QANN06\",\n            \"name\": \"Apakah anda sedang demam, batuk, pilek, sesak napas ?\",\n            \"additionalInfo\": \"5\",\n            \"description\": \"Jika ya bernilai 5, jika tidak bernilai 0\"\n        }\n    ],\n    \"responseCode\": \"00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET_PARAMS_BYTYPEANDCODE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\":\"QUESTIONS_ASSESSMENT_NN\",\r\n    \"code\":\"QANN02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/Params/getByTypeAndCode",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Params",
+								"getByTypeAndCode"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\":\"QUESTIONS_ASSESSMENT_NN\",\r\n    \"code\":\"QANN02\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Params/getByTypeAndCode",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Params",
+										"getByTypeAndCode"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:16:55 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMessage\": \"success\",\n    \"params\": {\n        \"id\": 3,\n        \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n        \"code\": \"QANN02\",\n        \"name\": \"Apakah anda naik transportasi umum ?\",\n        \"additionalInfo\": \"1\",\n        \"description\": \"Jika ya bernilai 1, jika tidak bernilai 0\"\n    },\n    \"responseCode\": \"00\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\":\"QUESTIONS_ASSESSMENT_NN\",\r\n    \"code\":\"QANN02S\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Params/getByTypeAndCode",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Params",
+										"getByTypeAndCode"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:17:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMessage\": \"params with type=QUESTIONS_ASSESSMENT_NN and code=QANN02S not found\",\n    \"responseCode\": \"01\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET_PARAMS_LISTALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/Params/getListAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Params",
+								"getListAll"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/Params/getListAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Params",
+										"getListAll"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:17:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMessage\": \"success\",\n    \"params\": [\n        {\n            \"id\": 1,\n            \"type\": \"HEADER_ASSESSMENT_NN\",\n            \"code\": \"HANN01\",\n            \"name\": \"Dalam 14 hari terakhir, apakah anda pernah mengalami/melakukan hal-hal berikut\",\n            \"additionalInfo\": \"-\",\n            \"description\": \"-\"\n        },\n        {\n            \"id\": 2,\n            \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n            \"code\": \"QANN01\",\n            \"name\": \"Apakah anda pergi ke tempat umum yang ada kerumunan ?\",\n            \"additionalInfo\": \"1\",\n            \"description\": \"Jika ya bernilai 1, jika tidak bernilai 0\"\n        },\n        {\n            \"id\": 3,\n            \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n            \"code\": \"QANN02\",\n            \"name\": \"Apakah anda naik transportasi umum ?\",\n            \"additionalInfo\": \"1\",\n            \"description\": \"Jika ya bernilai 1, jika tidak bernilai 0\"\n        },\n        {\n            \"id\": 4,\n            \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n            \"code\": \"QANN03\",\n            \"name\": \"Apakah anda pergi ke luar kota/luar negeri berzona merah ?\",\n            \"additionalInfo\": \"1\",\n            \"description\": \"Jika ya bernilai 1, jika tidak bernilai 0\"\n        },\n        {\n            \"id\": 5,\n            \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n            \"code\": \"QANN04\",\n            \"name\": \"Apakah anda ikut kegiatan yang melibatkan banyak orang ?\",\n            \"additionalInfo\": \"1\",\n            \"description\": \"Jika ya bernilai 1, jika tidak bernilai 0\"\n        },\n        {\n            \"id\": 6,\n            \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n            \"code\": \"QANN05\",\n            \"name\": \"Apakah anda kotak/dekat dengan orang yang terkonfirmasi COVID-19 ?\",\n            \"additionalInfo\": \"5\",\n            \"description\": \"Jika ya bernilai 5, jika tidak bernilai 0\"\n        },\n        {\n            \"id\": 7,\n            \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n            \"code\": \"QANN06\",\n            \"name\": \"Apakah anda sedang demam, batuk, pilek, sesak napas ?\",\n            \"additionalInfo\": \"5\",\n            \"description\": \"Jika ya bernilai 5, jika tidak bernilai 0\"\n        }\n    ],\n    \"responseCode\": \"00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE_PARAMS_BYID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/Params/deleteById/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Params",
+								"deleteById",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_FAILED",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/Params/deleteById/70",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Params",
+										"deleteById",
+										"70"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:17:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMessage\": \"params with Id:70 not found\",\n    \"responseCode\": \"01\"\n}"
+						},
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/v1/Params/deleteById/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Params",
+										"deleteById",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:18:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMessage\": \"Success delete params\",\n    \"params\": {\n        \"id\": 7,\n        \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n        \"code\": \"QANN06\",\n        \"name\": \"Apakah anda sedang demam, batuk, pilek, sesak napas ?\",\n        \"additionalInfo\": \"5\",\n        \"description\": \"Jika ya bernilai 5, jika tidak bernilai 0\"\n    },\n    \"responseCode\": \"00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ADD_PARAMS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"QUESTIONS_ASSESSMENT_NN\",\r\n    \"code\": \"QANN06\",\r\n    \"name\": \"Apakah anda sedang demam, batuk, pilek, sesak napas ?\",\r\n    \"additionalInfo\": \"5\",\r\n    \"description\": \"Jika ya bernilai 5, jika tidak bernilai 0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/Params/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Params",
+								"add"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_FAILED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"QUESTIONS_ASSESSMENT_NN\",\r\n\r\n    \"name\": \"Apakah anda sedang demam, batuk, pilek, sesak napas ?\",\r\n    \"additionalInfo\": \"5\",\r\n    \"description\": \"Jika ya bernilai 5, jika tidak bernilai 0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Params/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Params",
+										"add"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:21:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMessage\": \"failed\",\n    \"responseCode\": \"99\"\n}"
+						},
+						{
+							"name": "RESPONSE_-SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"QUESTIONS_ASSESSMENT_NN\",\r\n    \"code\": \"QANN06\",\r\n    \"name\": \"Apakah anda sedang demam, batuk, pilek, sesak napas ?\",\r\n    \"additionalInfo\": \"5\",\r\n    \"description\": \"Jika ya bernilai 5, jika tidak bernilai 0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Params/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Params",
+										"add"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:20:14 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMessage\": \"Success add params\",\n    \"params\": {\n        \"id\": 9,\n        \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n        \"code\": \"QANN06\",\n        \"name\": \"Apakah anda sedang demam, batuk, pilek, sesak napas ?\",\n        \"additionalInfo\": \"5\",\n        \"description\": \"Jika ya bernilai 5, jika tidak bernilai 0\"\n    },\n    \"responseCode\": \"00\"\n}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE_EMPLOYEE_BYID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"HEADER_ASSESSMENT_NN\",\r\n    \"code\": \"HANN02\",\r\n    \"name\": \"MASA SIH\",\r\n    \"additionalInfo\": \"-\",\r\n    \"description\": \"-\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/Params/updateById/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"Params",
+								"updateById",
+								"9"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "RESPONSE_SUCCESS",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"QUESTIONS_ASSESSMENT_NN\",\r\n    \"code\": \"QANN06\",\r\n    \"name\": \"Apakah anda sedang demam, batuk, pilek, sesak napas ?\",\r\n    \"additionalInfo\": \"5\",\r\n    \"description\": \"Jika ya bernilai 5, jika tidak bernilai 0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Params/updateById/9",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Params",
+										"updateById",
+										"9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:22:48 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMessage\": \"Success update params\",\n    \"params\": {\n        \"id\": 9,\n        \"type\": \"QUESTIONS_ASSESSMENT_NN\",\n        \"code\": \"QANN06\",\n        \"name\": \"Apakah anda sedang demam, batuk, pilek, sesak napas ?\",\n        \"additionalInfo\": \"5\",\n        \"description\": \"Jika ya bernilai 5, jika tidak bernilai 0\"\n    },\n    \"responseCode\": \"00\"\n}"
+						},
+						{
+							"name": "RESPONSE_FAILED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"QUESTIONS_ASSESSMENT_NN\",\r\n    \"code\": \"QANN06\",\r\n    \"name\": \"Apakah anda sedang demam, batuk, pilek, sesak napas ?\",\r\n    \"additionalInfo\": \"5\",\r\n    \"description\": \"Jika ya bernilai 5, jika tidak bernilai 0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/v1/Params/updateById/90",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"Params",
+										"updateById",
+										"90"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 10 Sep 2020 10:23:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"responseMessage\": \"params with Id:90 not found\",\n    \"responseCode\": \"01\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

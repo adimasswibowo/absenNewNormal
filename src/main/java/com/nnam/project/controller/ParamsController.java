@@ -34,19 +34,19 @@ public class ParamsController {
 			paramsList=(List<Params>) paramsRepository.findAll();
 			if (paramsList.size()<1) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "failed");
+				responseMap.put("responseMessage", "failed");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "success");
+		responseMap.put("responseMessage", "success");
 		responseMap.put("params", paramsList);
 		
 		return new ResponseEntity(responseMap, HttpStatus.OK);
@@ -61,20 +61,20 @@ public class ParamsController {
 			Optional<Params> paramsOptional=paramsRepository.findById(paramsId);
 			if(!paramsOptional.isPresent()) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "params with Id="+paramsId+" not found");
+				responseMap.put("responseMessage", "params with Id="+paramsId+" not found");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 			paramsObj=paramsOptional.get();
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "success");
+		responseMap.put("responseMessage", "success");
 		responseMap.put("params", paramsObj);
 		
 		return new ResponseEntity(responseMap, HttpStatus.OK);
@@ -88,19 +88,19 @@ public class ParamsController {
 		try {
 			if(paramsList.size()<1) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "params with type="+(String)paramMap.get("type")+" not found");
+				responseMap.put("responseMessage", "params with type="+(String)paramMap.get("type")+" not found");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "success");
+		responseMap.put("responseMessage", "success");
 		responseMap.put("params", paramsList);
 		
 		return new ResponseEntity(responseMap, HttpStatus.OK);
@@ -116,20 +116,20 @@ public class ParamsController {
 			Optional<Params> paramsOptional= paramsRepository.findByTypeAndCode((String)paramMap.get("type"), (String)paramMap.get("code"));
 			if(!paramsOptional.isPresent()) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "params with type="+(String)paramMap.get("type")+" and code="+(String)paramMap.get("code")+" not found");
+				responseMap.put("responseMessage", "params with type="+(String)paramMap.get("type")+" and code="+(String)paramMap.get("code")+" not found");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 			paramsObj=paramsOptional.get();
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "success");
+		responseMap.put("responseMessage", "success");
 		responseMap.put("params", paramsObj);
 		
 		return new ResponseEntity(responseMap, HttpStatus.OK);
@@ -143,12 +143,12 @@ public class ParamsController {
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "Success add params");
+		responseMap.put("responseMessage", "Success add params");
 		responseMap.put("params", paramsObj);
 		return new ResponseEntity(responseMap, HttpStatus.OK);
 	}
@@ -162,7 +162,7 @@ public class ParamsController {
 			Optional<Params> paramsOptional=paramsRepository.findById(paramsId);
 			if(!paramsOptional.isPresent()) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "params with Id:"+paramsId+" not found");
+				responseMap.put("responseMessage", "params with Id:"+paramsId+" not found");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 			paramsObj=paramsOptional.get();
@@ -170,12 +170,12 @@ public class ParamsController {
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "Success delete params");
+		responseMap.put("responseMessage", "Success delete params");
 		responseMap.put("params", paramsObj);
 		
 		return new ResponseEntity(responseMap, HttpStatus.OK);
@@ -189,7 +189,7 @@ public class ParamsController {
 			Optional<Params> paramsOptional=paramsRepository.findById(paramsId);
 			if(!paramsOptional.isPresent()) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "params with Id:"+paramsId+" not found");
+				responseMap.put("responseMessage", "params with Id:"+paramsId+" not found");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 			paramsFromDB=paramsOptional.get();
@@ -198,11 +198,11 @@ public class ParamsController {
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "Success update params");
+		responseMap.put("responseMessage", "Success update params");
 		responseMap.put("params", paramsFromDB);
 		return new ResponseEntity(responseMap, HttpStatus.OK);
 	}

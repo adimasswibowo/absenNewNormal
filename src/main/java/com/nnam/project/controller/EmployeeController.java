@@ -35,19 +35,19 @@ public class EmployeeController {
 			employeeList=(List<Employee>) employeeRepository.findAll();
 			if (employeeList.size()<1) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "failed");
+				responseMap.put("responseMessage", "failed");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "success");
+		responseMap.put("responseMessage", "success");
 		responseMap.put("employee", employeeList);
 		
 		return new ResponseEntity(responseMap, HttpStatus.OK);
@@ -62,20 +62,20 @@ public class EmployeeController {
 			Optional<Employee> employeeOptional=employeeRepository.findById(employeeId);
 			if(!employeeOptional.isPresent()) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "Employee with Id="+employeeId+" not found");
+				responseMap.put("responseMessage", "Employee with Id="+employeeId+" not found");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 			employeeObj=employeeOptional.get();
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "success");
+		responseMap.put("responseMessage", "success");
 		responseMap.put("employee", employeeObj);
 		
 		return new ResponseEntity(responseMap, HttpStatus.OK);
@@ -101,20 +101,20 @@ public class EmployeeController {
 
 			if(!employeeOptional.isPresent()) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "Employee with "+paramKey+"="+paramValue+" not found");
+				responseMap.put("responseMessage", "Employee with "+paramKey+"="+paramValue+" not found");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 			employeeObj=employeeOptional.get();
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "success");
+		responseMap.put("responseMessage", "success");
 		responseMap.put("employee", employeeObj);
 		
 		return new ResponseEntity(responseMap, HttpStatus.OK);
@@ -128,12 +128,12 @@ public class EmployeeController {
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "Success add Employee");
+		responseMap.put("responseMessage", "Success add Employee");
 		responseMap.put("employee", EmployeeObj);
 		return new ResponseEntity(responseMap, HttpStatus.OK);
 	}
@@ -147,7 +147,7 @@ public class EmployeeController {
 			Optional<Employee> employeeOptional=employeeRepository.findById(employeeId);
 			if(!employeeOptional.isPresent()) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "Employee with Id:"+employeeId+" not found");
+				responseMap.put("responseMessage", "Employee with Id:"+employeeId+" not found");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 			employeeObj=employeeOptional.get();
@@ -155,12 +155,12 @@ public class EmployeeController {
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "Success delete Employee");
+		responseMap.put("responseMessage", "Success delete Employee");
 		responseMap.put("employee", employeeObj);
 		
 		return new ResponseEntity(responseMap, HttpStatus.OK);
@@ -174,7 +174,7 @@ public class EmployeeController {
 			Optional<Employee> employeeOptional=employeeRepository.findById(employeeId);
 			if(!employeeOptional.isPresent()) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "Employee with Id:"+employeeId+" not found");
+				responseMap.put("responseMessage", "Employee with Id:"+employeeId+" not found");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 			employeeFromDB=employeeOptional.get();
@@ -183,11 +183,11 @@ public class EmployeeController {
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "Success update Employee");
+		responseMap.put("responseMessage", "Success update Employee");
 		responseMap.put("employee", employeeFromDB);
 		return new ResponseEntity(responseMap, HttpStatus.OK);
 	}

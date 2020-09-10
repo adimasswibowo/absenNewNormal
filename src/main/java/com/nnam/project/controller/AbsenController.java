@@ -47,19 +47,19 @@ public class AbsenController {
 			absenList=(List<Absen>) absenRepository.findAll();
 			if (absenList.size()<1) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "failed");
+				responseMap.put("responseMessage", "failed");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "success");
+		responseMap.put("responseMessage", "success");
 		responseMap.put("absen", absenList);
 		
 		return new ResponseEntity(responseMap, HttpStatus.OK);
@@ -80,7 +80,7 @@ public class AbsenController {
 				if(!employeeOptional.isPresent()) {
 					employeeId=(Integer) paramMap.get("employee");
 					responseMap.put("responseCode", "01");
-					responseMap.put("responseMap", "Employee with Id:"+employeeId+" not found");
+					responseMap.put("responseMessage", "Employee with Id:"+employeeId+" not found");
 					return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 				}
 				Employee employeeObj=employeeOptional.get();
@@ -101,18 +101,18 @@ public class AbsenController {
 			
 			if(absenList.size()<1) {
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "Absen not found");
+				responseMap.put("responseMessage", "Absen not found");
 				return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 			}
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "success");
+		responseMap.put("responseMessage", "success");
 		responseMap.put("absen", absenList);
 		
 		return new ResponseEntity(responseMap, HttpStatus.OK);
@@ -132,7 +132,7 @@ public class AbsenController {
 				Optional<Employee> employeeOptional=employeeRepository.findById(employeeId);
 				if(!employeeOptional.isPresent()) {
 					responseMap.put("responseCode", "01");
-					responseMap.put("responseMap", "Employee with Id:"+employeeId+" not found");
+					responseMap.put("responseMessage", "Employee with Id:"+employeeId+" not found");
 					return new ResponseEntity(responseMap, HttpStatus.BAD_REQUEST);
 				}
 				employeeObj=employeeOptional.get();
@@ -157,7 +157,7 @@ public class AbsenController {
 			if(assessmentList.size()<1) {
 				//Belum ada assessment
 				responseMap.put("responseCode", "01");
-				responseMap.put("responseMap", "You no have an assessment (no record), please do assessment first");
+				responseMap.put("responseMessage", "You no have an assessment (no record), please do assessment first");
 				return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 			}else {
 				//Sudah ada assessment
@@ -166,21 +166,21 @@ public class AbsenController {
 				if(expiredDateAssessment==null) {
 					//Sudah ada assessment tetapi perlu diputuskan oleh supervisor WFH atau WFO
 					responseMap.put("responseCode", "01");
-					responseMap.put("responseMap", "You have an uncompleted assessment, please contact your supervisor");
+					responseMap.put("responseMessage", "You have an uncompleted assessment, please contact your supervisor");
 					return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 				}
 				
 				if(expiredDateAssessment!=null && todayBegin.after(expiredDateAssessment)) {
 					//Sudah ada assessment tetapi expired, isi assessment terlebih dahulu
 					responseMap.put("responseCode", "01");
-					responseMap.put("responseMap", "You no have an assessment (expired), please do assessment first");
+					responseMap.put("responseMessage", "You no have an assessment (expired), please do assessment first");
 					return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 				}
 				
 				if(!"WFO".equalsIgnoreCase(assessmentActive.getValidatedResult())) {
 					//Sudah ada assessment tetapi diharuskan WFH berdasarkan hasil assessment
 					responseMap.put("responseCode", "01");
-					responseMap.put("responseMap", "You must be WORK FROM HOME");
+					responseMap.put("responseMessage", "You must be WORK FROM HOME");
 					return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 				}
 				
@@ -207,12 +207,12 @@ public class AbsenController {
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			responseMap.put("responseCode", "99");
-			responseMap.put("responseMap", "failed");
+			responseMap.put("responseMessage", "failed");
 			return new ResponseEntity(responseMap, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
 		responseMap.put("responseCode", "00");
-		responseMap.put("responseMap", "Success add Absen");
+		responseMap.put("responseMessage", "Success add Absen");
 		responseMap.put("absen", absenToday);
 		return new ResponseEntity(responseMap, HttpStatus.OK);
 	}
